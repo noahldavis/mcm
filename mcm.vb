@@ -96,7 +96,7 @@ Sub Shift_PD_Method()
     Dim k As Integer
     Dim j, b(), Begin_PD_calc As Integer
     Dim Num_paths As Long
-    Dim Path_string As String
+'   Dim Path_string As String
     Dim PD, rho, wm_rho, log_wm_rho, Shift_PD(), tmp, tmp_time As Double
     Dim Prob_vec(), Prob_zero_rho(), Shift_temp() As Double
     Dim wm_rho_power(), Sum_temp() As Double
@@ -261,7 +261,7 @@ End Function
 Sub Mixture_Method()
     Dim Num_bonds As Integer
     Dim kount As Integer
-    Dim j As Integer
+'   Dim j As Integer
     Dim PD, rho, tmp, weight, p1, p2 As Double
     Dim p1_minus_p2 As Double
     Dim Prob_vec(), Prob_zero_rho() As Double
@@ -307,13 +307,13 @@ Function JoeLogCombin(N As Integer, k As Integer) As Double
     JoeLogCombin = 0#
     
     '   Faulty input guard
-    If k < 0 Or k > N Then
+If k < 0 OrElse k > N Then
         Exit Function
     End If
     
-    If k = 1 Or k = N - 1 Then
+If k = 1 OrElse k = N - 1 Then
         JoeLogCombin = Log(N_dbl)
-    ElseIf k > 1 And k < N - 1 Then
+    ElseIf k > 1 AndAlso k < N - 1 Then
         JoeLogCombin = GammLn(N_dbl + 1#) - GammLn(k_dbl + 1#) - GammLn(N_dbl - k_dbl + 1#)
     End If
     
